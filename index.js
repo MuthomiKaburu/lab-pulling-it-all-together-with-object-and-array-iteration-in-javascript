@@ -114,3 +114,106 @@ function gameObject() {
         },
     };
 }
+
+function numPointsScored(playerName) {
+    const game = gameObject();
+    let points
+    Object.values(game).forEach(team => {
+        Object.keys(team.players).forEach(name=>{
+            if(name === playerName){
+                 points = team.players[name].points
+
+            }
+        })
+        
+    });
+    return points;
+}
+
+numPointsScored("Alan Anderson");
+
+function shoeSize(playerName){
+    const game = gameObject()
+    let size;
+    Object.values(game).forEach(team=>{
+        Object.keys(team.players).forEach(name=>{
+            if(name===playerName){
+                size = team.players[name].shoe
+            }
+        })
+    })
+    return size;
+}
+shoeSize("Alan Anderson");
+
+function teamColors(teamName){
+    const game = gameObject();
+    let colors;
+     Object.values(game).forEach(team => {
+        if (team.teamName === teamName) {
+            colors = team.colors;
+        }
+    });
+    return colors;
+}
+
+function teamNames() {
+    const game = gameObject();
+    const names = [];
+
+    Object.keys(game).forEach(key => {
+        names.push(game[key].teamName);
+    });
+
+    return names;
+}
+
+const nameesyy =teamNames()
+console.log(nameesyy)
+function playerNumbers(teamName) {
+    const game = gameObject();
+    const numbers = [];
+
+    Object.values(game).forEach(team => {
+        if (team.teamName === teamName) {
+            Object.values(team.players).forEach(player => {
+                numbers.push(player.number);
+            });
+        }
+    });
+
+    return numbers;
+}
+function playerStats(playerName){
+    const game = gameObject()
+    let stats;
+    Object.values(game).forEach(team=>{
+       Object.keys(team.players).forEach(name=>{
+        if(name===playerName){
+            stats = team.players[name];
+
+
+        }
+       })
+    })
+    return stats;
+}
+playerNumber("Alan Anderson")
+
+function bigShoeRebounds() {
+    const game = gameObject();
+
+    let biggestShoe = 0;
+    let rebounds = 0;
+
+    Object.values(game).forEach(team => {
+        Object.values(team.players).forEach(player => {
+            if (player.shoe > biggestShoe) {
+                biggestShoe = player.shoe;
+                rebounds = player.rebounds;
+            }
+        });
+    });
+
+    return rebounds;
+}
